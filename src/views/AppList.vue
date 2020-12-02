@@ -1,16 +1,21 @@
 <template>
 	<div class="app-container">
 		<div class="AppItem" @click="redirectPhotos">
-			Photos
+<!--			<img src="@/assets/icons/album.png" />-->
+			<PhotoLibrary :size="100"/>
+
 		</div>
 		<div class="AppItem" @click="redirectPosts">
-			Posts
+			<Comment :size="100"/>
 		</div>
 	</div>
 
 </template>
 
 <script>
+	import PhotoLibrary from 'vue-material-design-icons/Image.vue';
+	import Comment from 'vue-material-design-icons/Comment.vue';
+
 	export default {
 		name: "AppList",
 		methods: {
@@ -20,6 +25,10 @@
 			redirectPosts() {
 				this.$router.push('/posts');
 			}
+		},
+		components: {
+			PhotoLibrary,
+			Comment
 		}
 	}
 </script>
@@ -32,9 +41,13 @@
 		flex-direction: row;
 		justify-content: space-around;
 	}
+	img {
+		width: 50px;
+		height: auto;
+	}
 	.AppItem {
 		display: block;
-		line-height: 100px;
+		line-height: 125px;
 		width: 400px;
 		border-radius: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
